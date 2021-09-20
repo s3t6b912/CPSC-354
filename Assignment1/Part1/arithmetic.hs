@@ -58,7 +58,7 @@ negI :: II -> II
 
 -- add positive numbers
 addP :: PP -> PP -> PP
-addP O m = m
+addP I m = T m
 addP (T n) m = T (addP n m)
 
 -- multiply positive numbers
