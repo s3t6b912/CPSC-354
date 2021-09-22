@@ -8,7 +8,6 @@ module AbsNumbers where
 import Prelude (Integer)
 import qualified Prelude as C (Eq, Ord, Show, Read)
 
-data Exp
-    = Plus Exp Exp | Minus Exp Exp | Times Exp Exp | Num Integer
+data Exp = Plus Exp Exp | Times Exp Exp | Num Integer
   deriving (C.Eq, C.Ord, C.Show, C.Read)
 

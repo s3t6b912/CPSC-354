@@ -142,6 +142,5 @@ instance Print Double where
 instance Print AbsNumbers.Exp where
   prt i = \case
     AbsNumbers.Plus exp1 exp2 -> prPrec i 0 (concatD [prt 0 exp1, doc (showString "+"), prt 1 exp2])
-    AbsNumbers.Minus exp1 exp2 -> prPrec i 0 (concatD [prt 0 exp1, doc (showString "-"), prt 1 exp2])
     AbsNumbers.Times exp1 exp2 -> prPrec i 1 (concatD [prt 1 exp1, doc (showString "*"), prt 2 exp2])
     AbsNumbers.Num n -> prPrec i 2 (concatD [prt 0 n])

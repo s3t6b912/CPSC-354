@@ -25,8 +25,7 @@ The reserved words used in numbers are the following:
 There are no reserved words in numbers.
 
 The symbols used in numbers are the following:
-  | + | - | * | (
-  | ) |  |  |
+  | + | * | ( | )
 
 ===Comments===
 There are no single-line comments in the grammar.There are no multiple-line comments in the grammar.
@@ -38,7 +37,6 @@ and **eps** (empty rule) belong to the BNF notation.
 All other symbols are terminals.
 
   | //Exp// | -> | //Exp// ``+`` //Exp1//
-  |  |  **|**  | //Exp// ``-`` //Exp1//
   |  |  **|**  | //Exp1//
   | //Exp1// | -> | //Exp1// ``*`` //Exp2//
   |  |  **|**  | //Exp2//
