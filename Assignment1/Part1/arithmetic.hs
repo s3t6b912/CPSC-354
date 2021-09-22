@@ -14,7 +14,8 @@ data II = II NN NN
 
 -- Positive integers (to avoid dividing by 0)
 data PP = I | T PP
-
+  deriving (Eq,Show) -- for equality and printing
+  
 -- Rational numbers
 data QQ =  QQ II PP
 
@@ -41,16 +42,16 @@ multN (S n) m = addN (multN n m) m
 ----------------
 
 -- Addition: (a-b)+(c-d)=(a+c)-(b+d)
-addI :: II -> II -> II
+--addI :: II -> II -> II
 
 -- Multiplication: (a-b)*(c-d)=(ac+bd)-(ad+bc)
-multI :: II -> II -> II
+--multI :: II -> II -> II
 
 -- Subtraction: (a-b)-(c-d)=(a+d)-(b+c)
-subtrI :: II -> II -> II
+--subtrI :: II -> II -> II
 
 -- Negation: -(a-b)=(b-a)
-negI :: II -> II
+--negI :: II -> II
 
 ----------------
 -- QQ Arithmetic
@@ -62,65 +63,55 @@ addP I m = T m
 addP (T n) m = T (addP n m)
 
 -- multiply positive numbers
-multP :: PP -> PP -> PP
+--multP :: PP -> PP -> PP
 
 -- convert numbers of type PP to numbers of type II
-ii_pp :: PP -> II
+--ii_pp :: PP -> II
 
 -- Addition: (a/b)+(c/d)=(ad+bc)/(bd)
-addQ :: QQ -> QQ -> QQ
+--addQ :: QQ -> QQ -> QQ
 
 -- Multiplication: (a/b)*(c/d)=(ac)/(bd)
-multQ :: QQ -> QQ -> QQ
+--multQ :: QQ -> QQ -> QQ
 
 ----------------
 -- Normalisation
 ----------------
 
-normalizeI :: II -> II
+--normalizeI :: II -> II
 
 ----------------------------------------------------
 -- Converting between VM-numbers and Haskell-numbers
 ----------------------------------------------------
 
 -- Precondition: Inputs are non-negative
-nn_int :: Integer -> NN
+--nn_int :: Integer -> NN
 
-int_nn :: NN->Integer
+--int_nn :: NN->Integer
 
-ii_int :: Integer -> II
+--ii_int :: Integer -> II
 
-int_ii :: II -> Integer
+--int_ii :: II -> Integer
 
 -- Precondition: Inputs are positive
-pp_int :: Integer -> PP
+--pp_int :: Integer -> PP
 
-int_pp :: PP->Integer
+--int_pp :: PP->Integer
 
-float_qq :: QQ -> Float
+--float_qq :: QQ -> Float
 
 ------------------------------
 -- Normalisation by Evaluation
 ------------------------------
 
-nbv :: II -> II
+--nbv :: II -> II
 
 ----------
 -- Testing
 ----------
-
 main = do
-    -- Integers: (II i j) represents i-j, (II k l) represents k-l
-    let i = 4
-    let j = 2
-    let k = 1
-    let l = 3
-    print $ int_ii (addI (II (nn_int i) (nn_int j)) (II (nn_int k) (nn_int l)))
-    print $ int_ii (multI (II (nn_int i) (nn_int j)) (II (nn_int k) (nn_int l)))
-    -- Fractions: (QQ i j) represents i/j, (QQ k l) represents k/l
-    print $ float_qq (addQ (QQ (ii_int i) (pp_int j)) (QQ (ii_int k) (pp_int l)))
-    print $ float_qq (multQ (QQ (ii_int i) (pp_int j)) (QQ (ii_int k) (pp_int l)))
-    -- Normalisation (recursive definition)
-    print $ normalizeI (II (nn_int i) (nn_int j))
-    -- Normalisation (by evaluation)
-    print $ nbv (II (nn_int i) (nn_int j))
+    print $ addN (S (S O)) (S O)
+    print $ multN (S (S O)) (S (S (S O)))
+    print $ addP (T (T I)) (T I)
+
+
