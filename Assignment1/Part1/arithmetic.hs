@@ -78,8 +78,8 @@ ii_pp I = II (S O) O
 ii_pp (T n) = addI (II (S O) (O)) (ii_pp (n))
 
 -- Addition: (a/b)+(c/d)=(ad+bc)/(bd)
---addQ :: QQ -> QQ -> QQ
---addQ (QQ (II a b) c) (QQ (II d e) f) = QQ (
+addQ :: QQ -> QQ -> QQ
+addQ (QQ (II a b) c) (QQ (II d e) f) = QQ (addI (multI (II (a) (b)) (ii_pp(f))) (multI (ii_pp(c)) (II (d) (e)))) (multP (c) (f))
 
 -- Multiplication: (a/b)*(c/d)=(ac)/(bd)
 multQ :: QQ -> QQ -> QQ
@@ -129,6 +129,7 @@ main = do
     print $ subtrI (II (S (S O)) (O)) (II (S (S O)) (O))
     print $ negI (II (S (S O)) (O))
     print $ multQ (QQ (II (S (S O)) (O)) I) (QQ (II (S O) (O)) I)
+    print $ addQ (QQ (II (S (S O)) (O)) I) (QQ (II (S O) (O)) I)
     print $ ii_pp (T (T I))
 
 
