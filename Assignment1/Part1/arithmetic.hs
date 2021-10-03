@@ -42,7 +42,9 @@ multN (S n) m = addN (multN n m) m
 ----------------
 
 -- Addition: (a-b)+(c-d)=(a+c)-(b+d)
---addI :: II -> II -> II
+addI :: II -> II -> II
+addI O II m = II m
+addI (S II n) II m = 
 
 -- Multiplication: (a-b)*(c-d)=(ac+bd)-(ad+bc)
 --multI :: II -> II -> II
@@ -63,10 +65,14 @@ addP I m = T m
 addP (T n) m = T (addP n m)
 
 -- multiply positive numbers
---multP :: PP -> PP -> PP
+multP :: PP -> PP -> PP
+multP I m = m
+multP (T n) m = addP (multP n m) m
 
 -- convert numbers of type PP to numbers of type II
---ii_pp :: PP -> II
+ii_pp :: PP -> II
+ii_pp I = II (S O) O
+ii_pp (T n) = addI (S O) n
 
 -- Addition: (a/b)+(c/d)=(ad+bc)/(bd)
 --addQ :: QQ -> QQ -> QQ
