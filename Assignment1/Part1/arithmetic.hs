@@ -54,7 +54,8 @@ subtrI :: II -> II -> II
 subtrI (II a b) (II c d) = II (addN a d) (addN c b)
 
 -- Negation: -(a-b)=(b-a)
---negI :: II -> II
+negI :: II -> II
+negI (II a b) = II (b) (a)
 
 ----------------
 -- QQ Arithmetic
@@ -123,5 +124,6 @@ main = do
     print $ addI (II (S O) (O)) (II (S O) (O))
     print $ multI (II (S (S O)) (O)) (II (S (S O)) (O))
     print $ subtrI (II (S (S O)) (O)) (II (S (S O)) (O))
+    print $ negI (II (S (S O)) (O))
 
 
