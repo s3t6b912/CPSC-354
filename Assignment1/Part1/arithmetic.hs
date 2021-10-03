@@ -43,8 +43,8 @@ multN (S n) m = addN (multN n m) m
 
 -- Addition: (a-b)+(c-d)=(a+c)-(b+d)
 addI :: II -> II -> II
-addI O II m = II m
-addI (S II n) II m = 
+-- addI O II m = II m
+addI (II a b) (II c d) = II (addN a c) (addN b d)
 
 -- Multiplication: (a-b)*(c-d)=(ac+bd)-(ad+bc)
 --multI :: II -> II -> II
@@ -70,9 +70,9 @@ multP I m = m
 multP (T n) m = addP (multP n m) m
 
 -- convert numbers of type PP to numbers of type II
-ii_pp :: PP -> II
-ii_pp I = II (S O) O
-ii_pp (T n) = addI (S O) n
+-- ii_pp :: PP -> II
+-- ii_pp I = II (S O) O
+-- ii_pp (T n) = addI (II (S O) (O)) (II (n) (O))
 
 -- Addition: (a/b)+(c/d)=(ad+bc)/(bd)
 --addQ :: QQ -> QQ -> QQ
@@ -119,5 +119,6 @@ main = do
     print $ addN (S (S O)) (S O)
     print $ multN (S (S O)) (S (S (S O)))
     print $ addP (T (T I)) (T I)
+    print $ addI (II (S O) (O)) (II (S O) (O))
 
 
