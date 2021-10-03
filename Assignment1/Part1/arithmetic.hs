@@ -18,6 +18,7 @@ data PP = I | T PP
   
 -- Rational numbers
 data QQ =  QQ II PP
+  deriving (Eq,Show) -- for equality and printing
 
 ------------------------
 -- Arithmetic on the  VM
@@ -78,9 +79,11 @@ multP (T n) m = addP (multP n m) m
 
 -- Addition: (a/b)+(c/d)=(ad+bc)/(bd)
 --addQ :: QQ -> QQ -> QQ
+--addQ (QQ (II a b) c) (QQ (II d e) f) = QQ (
 
 -- Multiplication: (a/b)*(c/d)=(ac)/(bd)
---multQ :: QQ -> QQ -> QQ
+multQ :: QQ -> QQ -> QQ
+multQ (QQ (II a b) c) (QQ (II d e) f) = QQ (multI (II (a) (b)) (II (d) (e))) (multP (c) (f))
 
 ----------------
 -- Normalisation
@@ -125,5 +128,6 @@ main = do
     print $ multI (II (S (S O)) (O)) (II (S (S O)) (O))
     print $ subtrI (II (S (S O)) (O)) (II (S (S O)) (O))
     print $ negI (II (S (S O)) (O))
+    print $ multQ (QQ (II (S (S O)) (O)) I) (QQ (II (S O) (O)) I)
 
 
