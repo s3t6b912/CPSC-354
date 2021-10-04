@@ -89,7 +89,10 @@ multQ (QQ (II a b) c) (QQ (II d e) f) = QQ (multI (II (a) (b)) (II (d) (e))) (mu
 -- Normalisation
 ----------------
 
---normalizeI :: II -> II
+normalizeI :: II -> II
+normalizeI (II n O) = (II n O)
+normalizeI (II O n) = (II O n)
+normalizeI (II (S n) (S m)) = normalizeI (II n m)
 
 ----------------------------------------------------
 -- Converting between VM-numbers and Haskell-numbers
@@ -104,12 +107,13 @@ int_nn :: NN->Integer
 int_nn O = 0
 int_nn (S n) = int_nn (n) + 1
 
---ii_int :: Integer -> II
---ii_int 0 = II (O) (O)
---ii_int n = 
+ii_int :: Integer -> II
+ii_int 0 = II (O) (O)
+if n > 0
+    then let ii_int n = II (nn_int(n)) (O)
+    else let ii_int n = II (O) (nn_int(-n))
 
 int_ii :: II -> Integer
-int_ii (II (O) (O)) = 0
 int_ii (II (a) (b)) = (int_nn(a) - int_nn(b))
 
 -- Precondition: Inputs are positive
@@ -128,8 +132,8 @@ float_qq (QQ (II (a) (b)) c) = (fromInteger(int_ii(II (a) (b))) / fromInteger(in
 -- Normalisation by Evaluation
 ------------------------------
 
---nbv :: II -> II
---nbv n = ii_int(int_ii(n))
+nbv :: II -> II
+nbv n = ii_int(int_ii(n))
 
 ----------
 -- Testing
