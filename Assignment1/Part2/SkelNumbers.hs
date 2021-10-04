@@ -18,4 +18,8 @@ transExp x = case x of
   AbsNumbers.Plus exp1 exp2 -> failure x
   AbsNumbers.Minus exp1 exp2 -> failure x
   AbsNumbers.Times exp1 exp2 -> failure x
+  AbsNumbers.Div exp1 exp2 -> failure x
+  AbsNumbers.Neg exp -> failure x
+  AbsNumbers.Exp exp1 exp2 -> failure x
+  AbsNumbers.Abs exp -> failure x
   AbsNumbers.Num integer -> failure x
