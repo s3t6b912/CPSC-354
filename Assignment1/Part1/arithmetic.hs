@@ -96,9 +96,13 @@ multQ (QQ (II a b) c) (QQ (II d e) f) = QQ (multI (II (a) (b)) (II (d) (e))) (mu
 ----------------------------------------------------
 
 -- Precondition: Inputs are non-negative
---nn_int :: Integer -> NN
+nn_int :: Integer -> NN
+nn_int 0 = O
+nn_int n = S (nn_int(n-1))
 
---int_nn :: NN->Integer
+int_nn :: NN->Integer
+int_nn O = 0
+int_nn (S n) = int_nn (n) + 1
 
 --ii_int :: Integer -> II
 
