@@ -105,13 +105,19 @@ int_nn O = 0
 int_nn (S n) = int_nn (n) + 1
 
 --ii_int :: Integer -> II
+--ii_int 0 = II (O) (O)
+--ii_int n = 
 
 --int_ii :: II -> Integer
 
 -- Precondition: Inputs are positive
---pp_int :: Integer -> PP
+pp_int :: Integer -> PP
+pp_int 1 = I
+pp_int n = T (pp_int(n-1))
 
---int_pp :: PP->Integer
+int_pp :: PP->Integer
+int_pp I = 1
+int_pp (T n) = int_pp (n) + 1
 
 --float_qq :: QQ -> Float
 
