@@ -109,9 +109,7 @@ int_nn (S n) = int_nn (n) + 1
 
 ii_int :: Integer -> II
 ii_int 0 = II (O) (O)
-if n > 0
-    then let ii_int n = II (nn_int(n)) (O)
-    else let ii_int n = II (O) (nn_int(-n))
+ii_int n = II (nn_int(n)) (O)
 
 int_ii :: II -> Integer
 int_ii (II (a) (b)) = (int_nn(a) - int_nn(b))
