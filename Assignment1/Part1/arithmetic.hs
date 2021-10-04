@@ -108,7 +108,9 @@ int_nn (S n) = int_nn (n) + 1
 --ii_int 0 = II (O) (O)
 --ii_int n = 
 
---int_ii :: II -> Integer
+int_ii :: II -> Integer
+int_ii (II (O) (O)) = 0
+int_ii (II (a) (b)) = (int_nn(a) - int_nn(b))
 
 -- Precondition: Inputs are positive
 pp_int :: Integer -> PP
@@ -119,13 +121,15 @@ int_pp :: PP->Integer
 int_pp I = 1
 int_pp (T n) = int_pp (n) + 1
 
---float_qq :: QQ -> Float
+float_qq :: QQ -> Float
+float_qq (QQ (II (a) (b)) c) = (fromInteger(int_ii(II (a) (b))) / fromInteger(int_pp(c)))
 
 ------------------------------
 -- Normalisation by Evaluation
 ------------------------------
 
 --nbv :: II -> II
+--nbv n = ii_int(int_ii(n))
 
 ----------
 -- Testing
