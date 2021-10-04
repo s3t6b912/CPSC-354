@@ -27,14 +27,15 @@ import LexNumbers
 %monad { Err } { (>>=) } { return }
 %tokentype {Token}
 %token
-  '('      { PT _ (TS _ 1) }
-  ')'      { PT _ (TS _ 2) }
-  '*'      { PT _ (TS _ 3) }
-  '+'      { PT _ (TS _ 4) }
-  '-'      { PT _ (TS _ 5) }
-  '/'      { PT _ (TS _ 6) }
-  '^'      { PT _ (TS _ 7) }
-  '|'      { PT _ (TS _ 8) }
+  '%'      { PT _ (TS _ 1) }
+  '('      { PT _ (TS _ 2) }
+  ')'      { PT _ (TS _ 3) }
+  '*'      { PT _ (TS _ 4) }
+  '+'      { PT _ (TS _ 5) }
+  '-'      { PT _ (TS _ 6) }
+  '/'      { PT _ (TS _ 7) }
+  '^'      { PT _ (TS _ 8) }
+  '|'      { PT _ (TS _ 9) }
   L_integ  { PT _ (TI $$)  }
 
 %%
@@ -59,6 +60,7 @@ Exp2
   : '-' Exp3 { AbsNumbers.Neg $2 }
   | Exp2 '^' Exp3 { AbsNumbers.Exp $1 $3 }
   | '|' Exp '|' { AbsNumbers.Abs $2 }
+  | Exp2 '%' Exp3 { AbsNumbers.Mod $1 $3 }
   | Exp3 { $1 }
 
 Exp3 :: { AbsNumbers.Exp }

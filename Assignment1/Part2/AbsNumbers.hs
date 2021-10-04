@@ -16,6 +16,7 @@ data Exp
     | Neg Exp
     | Exp Exp Exp
     | Abs Exp
+    | Mod Exp Exp
     | Num Integer
   deriving (C.Eq, C.Ord, C.Show, C.Read)
 

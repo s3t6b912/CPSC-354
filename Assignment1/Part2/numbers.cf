@@ -5,6 +5,7 @@ Div. Exp1 ::= Exp1 "/" Exp2 ;
 Neg. Exp2 ::= "-" Exp3 ;
 Exp. Exp2 ::= Exp2 "^" Exp3 ;
 Abs. Exp2 ::= "|" Exp "|" ;
+Mod. Exp2 ::= Exp2 "%" Exp3 ;
 Num. Exp3 ::= Integer ;
 
 coercions Exp 3 ;

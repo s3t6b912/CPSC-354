@@ -148,4 +148,5 @@ instance Print AbsNumbers.Exp where
     AbsNumbers.Neg exp -> prPrec i 2 (concatD [doc (showString "-"), prt 3 exp])
     AbsNumbers.Exp exp1 exp2 -> prPrec i 2 (concatD [prt 2 exp1, doc (showString "^"), prt 3 exp2])
     AbsNumbers.Abs exp -> prPrec i 2 (concatD [doc (showString "|"), prt 0 exp, doc (showString "|")])
+    AbsNumbers.Mod exp1 exp2 -> prPrec i 2 (concatD [prt 2 exp1, doc (showString "%"), prt 3 exp2])
     AbsNumbers.Num n -> prPrec i 3 (concatD [prt 0 n])

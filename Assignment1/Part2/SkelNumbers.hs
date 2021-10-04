@@ -22,4 +22,5 @@ transExp x = case x of
   AbsNumbers.Neg exp -> failure x
   AbsNumbers.Exp exp1 exp2 -> failure x
   AbsNumbers.Abs exp -> failure x
+  AbsNumbers.Mod exp1 exp2 -> failure x
   AbsNumbers.Num integer -> failure x
