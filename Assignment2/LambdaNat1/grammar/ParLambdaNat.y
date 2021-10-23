@@ -34,7 +34,9 @@ import LexLambdaNat
   '('  { PT _ (TS _ 1)  }
   ')'  { PT _ (TS _ 2)  }
   '.'  { PT _ (TS _ 3)  }
-  '\\' { PT _ (TS _ 4)  }
+  '0'  { PT _ (TS _ 4)  }
+  'S'  { PT _ (TS _ 5)  }
+  '\\' { PT _ (TS _ 6)  }
   L_Id { PT _ (T_Id $$) }
 
 %%
@@ -53,12 +55,12 @@ Exp2 : Exp2 Exp3 { AbsLambdaNat.EApp $1 $2 } | Exp3 { $1 }
 
 Exp3 :: { AbsLambdaNat.Exp }
 Exp3
-  : Id { AbsLambdaNat.EVar $1 }
-  | {- empty -} { AbsLambdaNat.NatO }
-  | '(' Exp ')' { $2 }
+  : '0' { AbsLambdaNat.ENat0 }
+  | 'S' Exp3 { AbsLambdaNat.ENatS $2 }
+  | Exp4 { $1 }
 
 Exp4 :: { AbsLambdaNat.Exp }
-Exp4 : {- empty -} { AbsLambdaNat.NatS }
+Exp4 : Id { AbsLambdaNat.EVar $1 } | '(' Exp ')' { $2 }
 
 Exp :: { AbsLambdaNat.Exp }
 Exp : Exp1 { $1 }

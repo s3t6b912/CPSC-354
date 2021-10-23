@@ -150,3 +150,5 @@ instance Print AbsLambdaNat.Exp where
     AbsLambdaNat.EAbs id_ exp -> prPrec i 1 (concatD [doc (showString "\\"), prt 0 id_, doc (showString "."), prt 0 exp])
     AbsLambdaNat.EApp exp1 exp2 -> prPrec i 2 (concatD [prt 2 exp1, prt 3 exp2])
     AbsLambdaNat.EVar id_ -> prPrec i 3 (concatD [prt 0 id_])
+    AbsLambdaNat.NatO -> prPrec i 3 (concatD [])
+    AbsLambdaNat.NatS -> prPrec i 4 (concatD [])

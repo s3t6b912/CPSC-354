@@ -29,6 +29,8 @@ evalCBN (EApp e1 e2) = case (evalCBN e1) of
 ----------------------------------------------------
 --- YOUR CODE goes here for extending the interpreter
 ----------------------------------------------------
+evalCBN (ENat0) = ENat0
+evalCBN (ENatS e3) = ENatS e3
 evalCBN x = x -- this is a catch all clause, currently only for variables, must be the clause of the eval function
 
 -- fresh generates fresh names for substitutions, can be ignored for now
@@ -57,4 +59,5 @@ subst id s (EAbs id1 e1) =
 ----------------------------------------------------------------
 --- YOUR CODE goes here if subst needs to be extended as well
 ----------------------------------------------------------------
-
+subst id s (ENat0) = ENat0
+subst id s (ENatS e3) = ENatS (subst id s e3)
