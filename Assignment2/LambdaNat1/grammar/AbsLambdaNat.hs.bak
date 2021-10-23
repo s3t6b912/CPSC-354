@@ -3,7 +3,7 @@
 
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
--- | The abstract syntax of language LambdaNat1.
+-- | The abstract syntax of language LambdaNat0.
 
 module AbsLambdaNat where
 
@@ -14,7 +14,7 @@ import qualified Data.String
 data Program = Prog Exp
   deriving (C.Eq, C.Ord, C.Show, C.Read)
 
-data Exp = EAbs Id Exp | EApp Exp Exp | EVar Id | NatO | NatS
+data Exp = EAbs Id Exp | EApp Exp Exp | EVar Id
   deriving (C.Eq, C.Ord, C.Show, C.Read)
 
 newtype Id = Id String
