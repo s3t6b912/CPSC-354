@@ -38,6 +38,7 @@ evalCBN (EIf e1 e2 e3 e4) =
     if e1 == e2
         then evalCBN e3
     else evalCBN e4
+evalCBN (ELet i e1 e2) = evalCBN (subst i e1 e2)
 evalCBN x = x -- this is a catch all clause, currently only for variables, must be the clause of the eval function
 
 -- fresh generates fresh names for substitutions, can be ignored for now
@@ -72,3 +73,4 @@ subst id s (EMinusOne e) = case (subst id s e) of
     (ENatS e2) -> EMinusOne (subst id s e2)
     e2 -> subst id s e2
 subst id s (EIf e1 e2 e3 e4) = EIf (subst id s e1)(subst id s e2)(subst id s e3)(subst id s e4)
+subst id s (ELet i e1 e2) = ELet (i)(subst id s e1)(subst id s e2)
