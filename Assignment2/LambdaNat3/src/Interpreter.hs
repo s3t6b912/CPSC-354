@@ -31,6 +31,9 @@ evalCBN (ENatS e) = ENatS (evalCBN e)
 ----------------------------------------------------
 --- YOUR CODE goes here for extending the interpreter
 ----------------------------------------------------
+evalCBN (EMinusOne e) = case (evalCBN e) of
+    (ENatS e2) -> evalCBN e2
+    e2 -> evalCBN e2
 evalCBN x = x -- this is a catch all clause, currently only for variables, must be the clause of the eval function
 
 -- fresh generates fresh names for substitutions, can be ignored for now
@@ -61,3 +64,6 @@ subst id s (EAbs id1 e1) =
 ----------------------------------------------------------------
 subst id s ENat0 = ENat0 
 subst id s (ENatS e) = ENatS (subst id s e)
+subst id s (EMinusOne e) = case (subst id s e) of
+    (ENatS e2) -> EMinusOne (subst id s e2)
+    e2 -> subst id s e2
