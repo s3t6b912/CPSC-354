@@ -1,0 +1,36 @@
+/home/seed/.stack/programs/x86_64-linux/ghc-tinfo6-8.6.4/lib/ghc-8.6.4/include/ghcautoconf.h:
+  hash: 6d4f30152de0bca5ee053a85e607a3687b5de1024967a8c8c69fa076e83cf342
+/usr/lib/ghc/include/ghcversion.h:
+  hash: ca33eca9a5d6d6c3a4138d1ebf5808e19d48d89df6929099f6aaebd64ffe7843
+/home/seed/Programming/CPSC-354/Assignment2/LambdaNat3/src/ErrM.hs:
+  hash: 91d43beb5d7e2ec1cc78ad4b1f07da9a2ede237b0ea36357e01eb250d1017437
+/home/seed/Programming/CPSC-354/Assignment2/LambdaNat3/src/Interpreter.hs:
+  hash: 33c8e7072a1deaa5eca2c3db8c61dedc2389776f0826e6b0a216d8a518924d97
+/home/seed/.stack/programs/x86_64-linux/ghc-tinfo6-8.6.4/lib/ghc-8.6.4/include/ghcconfig.h:
+  hash: 03f4611ae97decc9e8c76c212bf7886d003b29d5c62b43fee6623a799f6e5fdf
+/home/seed/.stack/programs/x86_64-linux/ghc-tinfo6-8.6.4/lib/ghc-8.6.4/include/ghcversion.h:
+  hash: 529291d4a255ef1c3ec99116d8dca391f2db7bad8b5eab6dcbf9a70354c6eedf
+/home/seed/.stack/programs/x86_64-linux/ghc-tinfo6-8.6.4/lib/ghc-8.6.4/include/ghcplatform.h:
+  hash: 6f30e9ad0022d26323aca04816a74e38a04af174747fe91efa77324c78b0d73d
+/home/seed/Programming/CPSC-354/Assignment2/LambdaNat3/LambdaNat.cabal:
+  hash: 7e33c644afb8a8a5f9fdc605c2c827865b4de067cec8db142abff39d3b197efd
+/home/seed/Programming/CPSC-354/Assignment2/LambdaNat3/src/LexLambdaNat.hs:
+  hash: 5e00b9fb5e63494363ae78b08ad3731c10aa744951cbedeaee364f21fd7e7122
+/home/seed/Programming/CPSC-354/Assignment2/LambdaNat3/ChangeLog.md:
+  hash: 8813e52402bb3e213004a0a8162e4be2b4db6c6e9f671b755a7189dc61dd329f
+/usr/include/stdc-predef.h:
+  hash: 64fdf694f7b3d51ec6c45c06dcb71ebbe9455742d3ea673012016668853d3bff
+? /home/seed/Programming/CPSC-354/Assignment2/LambdaNat3/.stack-work/dist/x86_64-linux-tinfo6/Cabal-2.4.0.1/build/autogen/Paths_LambdaNat.hs
+: hash: 61a143bff7d97cff5c72fcf03b22d01a1444d70fbf0cc624e3db1afe70edf9c8
+? /home/seed/Programming/CPSC-354/Assignment2/LambdaNat3/.stack-work/dist/x86_64-linux-tinfo6/Cabal-2.4.0.1/build/autogen/cabal_macros.h
+: hash: 87acf5b72ea9a48450918b12ee6f021624584d6e75ca6fa8e5af67259f669f72
+/home/seed/Programming/CPSC-354/Assignment2/LambdaNat3/src/AbsLambdaNat.hs:
+  hash: c2630a2741968b7d56783e65bae529f16f05d17152bb5f343c05322758f5feeb
+/home/seed/Programming/CPSC-354/Assignment2/LambdaNat3/src/ParLambdaNat.hs:
+  hash: 7ed54fde62360af52d5a36daf3fd61762af339d9e85cf01b8e88ca19cc0a8a7b
+/home/seed/Programming/CPSC-354/Assignment2/LambdaNat3/README.md:
+  hash: d5e1a9f7b7c7a02fe5108f6569cba9eeea6f282c99852fed5f19a22472abddfb
+/home/seed/Programming/CPSC-354/Assignment2/LambdaNat3/package.yaml:
+  hash: b8d8fbf1254b0c779a7866ff27e59097372916566ea7f8ed4b925988785c2605
+/home/seed/Programming/CPSC-354/Assignment2/LambdaNat3/src/PrintLambdaNat.hs:
+  hash: 31c8fd3422fa9db3812e4dd0c7e264a057c3b600c1d26c4bd6ea35379b764809
