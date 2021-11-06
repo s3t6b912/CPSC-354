@@ -43,7 +43,7 @@ evalCBN (ETimes e1 e2) = case (evalCBN e1) of
         (EInt m) -> ETimes e1' (EInt m)
         e2' -> ETimes e1' e2'
 evalCBN (EInt n) = EInt n
---evalCBN x = x 
+evalCBN x = x 
 
 -- a quick and dirty way of getting fresh names, rather inefficient for big terms...
 fresh_aux :: Exp -> String
