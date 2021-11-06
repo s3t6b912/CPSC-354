@@ -31,3 +31,7 @@ tl ((\ x . x) a : #)
 ;;
 
 tl ((\ x . x) a) : #
+
+;;
+
+2 less_equal 2
