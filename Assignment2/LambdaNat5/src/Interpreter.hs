@@ -17,7 +17,7 @@ evalCBN (ELet i e1 e2) = evalCBN (EApp (EAbs i e2) e1)
 evalCBN (ERec i e1 e2) = evalCBN (EApp (EAbs i e2) (EFix (EAbs i e1)))
 evalCBN (EFix e) = evalCBN (EApp e (EFix e)) 
 evalCBN ENil = ENil
--- evalCBN (ECons e1 e2) 
+evalCBN (ECons e1 e2) = ECons (e1) (evalCBN e2)
 -- evalCBN (EHd e) 
 -- evalCBN (ETl e) 
 -- evalCBN (ELE e1 e2)
@@ -43,7 +43,7 @@ evalCBN (ETimes e1 e2) = case (evalCBN e1) of
         (EInt m) -> ETimes e1' (EInt m)
         e2' -> ETimes e1' e2'
 evalCBN (EInt n) = EInt n
-evalCBN x = x 
+--evalCBN x = x 
 
 -- a quick and dirty way of getting fresh names, rather inefficient for big terms...
 fresh_aux :: Exp -> String
