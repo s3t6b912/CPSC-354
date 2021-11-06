@@ -16,7 +16,7 @@ evalCBN (EIf e1 e2 e3 e4) = if (evalCBN e1) == (evalCBN e2) then evalCBN e3 else
 evalCBN (ELet i e1 e2) = evalCBN (EApp (EAbs i e2) e1) 
 evalCBN (ERec i e1 e2) = evalCBN (EApp (EAbs i e2) (EFix (EAbs i e1)))
 evalCBN (EFix e) = evalCBN (EApp e (EFix e)) 
-evalCBN ENil = #
+evalCBN ENil = ENil
 -- evalCBN (ECons e1 e2) 
 -- evalCBN (EHd e) 
 -- evalCBN (ETl e) 
