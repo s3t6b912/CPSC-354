@@ -35,9 +35,9 @@ prod 1:2:3:4:#
 let plus_two = \ num.
     num+2
 in
-let rec map = \ plus_two. \ list.
+let rec map = \ func. \ list.
     if (hd list)=# then #
-        else (plus_two (hd list)) : (map (plus_two) (tl list))
+        else (func (hd list)) : (map (func) (tl list))
 in
 map plus_two 1:2:3:4:#
 
