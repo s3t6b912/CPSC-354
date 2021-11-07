@@ -16,6 +16,12 @@ myplus_two a = a+2
 mymap :: (a -> a) -> [a] -> [a]
 mymap func list = if length(list) == 1 then [func (head(list))] else func (head(list)) : mymap (func) (tail(list))
 
+myinsert :: Integer -> [Integer] -> [Integer]
+myinsert elem list = if elem <= head(list) then (elem : list) else head(list) : myinsert (elem) (tail(list))
+
+mysort :: [Integer] -> [Integer]
+mysort list = if length(list) == 1 then list else myinsert (head(list)) (mysort (tail(list)))
+
 main = do
     let a = [2,3,1]
     let b = [1,2,3,1,2,3]
@@ -25,3 +31,4 @@ main = do
     print $ mysum (c)
     print $ myprod (c)
     print $ mymap (myplus_two) (c)
+    print $ mysort (b)
