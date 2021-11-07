@@ -44,9 +44,12 @@ map plus_two 1:2:3:4:#
 ;;
 
 let rec insert = \ elem. \ list.
-    if (elem less_equal (hd list)) then (elem : list) else
-        (hd list) : (insert elem (tl list))
+    if (hd list)=# then (elem : #) else
+        if (elem less_equal (hd list))=1 then (elem : list) else
+            (hd list) : (insert elem (tl list))
 in
 let rec sort = \ list.
     if (hd list)=# then # else
-        
+        insert (hd list) (sort (tl list))
+in
+sort 1:2:3:1:2:3:#
