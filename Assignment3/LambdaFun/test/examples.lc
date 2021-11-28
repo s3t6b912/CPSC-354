@@ -14,3 +14,36 @@ rec member = \x.\y. case y of {
     [] -> false, 
     (a:as) -> case x == a of { true -> true, _ -> member x as } };;
 
+-- remove function
+rec remove = \x. \y. case y of {
+    [] ->  [],
+    (a:as) -> case x == a of { true -> (tail y), _ -> (head y) : (remove x as) } };;
+    
+-- sum function
+rec sum = \x. case x of {
+    [] ->  0,
+    (a:as) -> a + (sum as)};;
+    
+-- prod function
+rec prod = \x. case x of {
+    [] ->  1,
+    (a:as) -> a * (prod as)};;
+    
+-- plustwo function
+val plustwo = \x. x+2;;
+
+-- map function
+rec map = \x. \y. case y of {
+    [] -> [],
+    (a:as) -> (x a) : (map x as)};;
+    
+-- insert function
+rec insert = \x. \y. case y of {
+    [] -> x,
+    x <= (head y) -> x : y,
+    (a:as) -> a : (insert x as)};;
+    
+-- sort function
+rec sort = \x. case x of {
+    [] -> [],
+    (a:as) -> insert a (sort as)};;
