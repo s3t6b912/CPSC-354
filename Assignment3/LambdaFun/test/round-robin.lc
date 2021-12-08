@@ -5,13 +5,82 @@ val newCList = \e.
 
 -- complete the following functions
 
--- val next = \a. 
+val next = \a. 
+    case !a of {
+        [e,a'] -> a'
+    } ;;
 
--- val get = \a. 
+val get = \a. 
+    case !a of {
+        [e,a'] -> e
+    } ;;
 
--- val insert = \e. \a. 
+--val insert = \e. \a. 
+--    let val ins = new [] in
+--    let val temp = new [] in
+--    ins := [e, next(a)];
+--    temp := [get(a), ins];
+--    temp;;
 
 -- val delete = \a. 
 
--- val update = \e. \a. 
+val update = \e. \a. 
+    a := [e, next(a)];
+    !a;;
 
+-- TESTING
+
+rec toListAux = \h. \b. case b == h of {
+        true -> [] ,
+        false -> case !b of {
+            [v, b'] -> v : (toListAux h b')
+        }
+};;
+
+val cListToList = \a. case !a of {
+    [v, a'] -> v : (toListAux a a')
+};;
+
+val testNext1 =
+    let val l1 = new [] in
+    let val l2 = new [] in
+    l1 := ["a", l2];
+    l2 := ["b", l1];
+    (next l1) == l2
+;;
+
+val testNext2 =
+    let val l1 = new [] in
+    let val l2 = new [] in
+    l1 := ["a", l2];
+    l2 := ["b", l1];
+    (next (next l1)) == l1
+;;
+
+val testGet1 =
+    let val l = newCList "a" in
+    (get l) == "a"
+;;
+
+val testNextGet1 =
+    let val l1 = new [] in
+    let val l2 = new [] in
+    l1 := ["a", l2];
+    l2 := ["b", l1];
+    (get (next l1)) == "b"
+;;
+
+val testUpdate1 =
+    let val l = newCList "a" in
+    update "b" l;
+    cListToList l == ["b"]
+;;
+
+val testUpdate2 =
+    let val l1 = new [] in
+    let val l2 = new [] in
+    l1 := ["a", l2];
+    l2 := ["b", l1];
+    update "c" l1;
+    cListToList l1 == ["c", "b"]
+;;
